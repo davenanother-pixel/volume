@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lower Volume — GitHub Pages Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Lower Volume — Demo</h1>
+    <p>Control all audio/video elements on this page. Use the fade button to reduce volume smoothly.</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <div class="control-row">
+        <label>Global volume: <span id="volLabel">100%</span></label>
+        <input id="globalSlider" type="range" min="0" max="100" value="100" />
+      </div>
+
+      <div class="control-row buttons">
+        <button id="lower10">Lower −10%</button>
+        <button id="raise10">Raise +10%</button>
+        <button id="fade5">Fade down (5s)</button>
+        <button id="fade15">Fade down (15s)</button>
+        <button id="mute">Mute</button>
+        <button id="restore">Restore</button>
+      </div>
+
+      <div class="control-row">
+        <label for="fadeDuration">Custom fade duration (s)</label>
+        <input id="fadeDuration" type="number" min="1" max="120" value="8" />
+        <button id="fadeCustom">Fade down</button>
+      </div>
+
+      <div class="hint">
+        <strong>Bookmarklet:</strong>
+        <code id="bookmarklet">Drag me to your bookmarks bar: Lower Volume</code>
+      </div>
+    </section>
+
+    <section class="media">
+      <h2>Example media</h2>
+
+      <p>Two example audio files and a video. Use the controls above to change their volumes simultaneously.</p>
+
+      <div class="media-grid">
+        <div>
+          <p>Looping music (audio)</p>
+          <audio controls loop src="https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3"></audio>
+        </div>
+        <div>
+          <p>Short sound effect (audio)</p>
+          <audio controls src="https://interactive-examples.mdn.mozilla.net/media/examples/flower.mp3"></audio>
+        </div>
+        <div>
+          <p>Sample video (video)</p>
+          <video controls width="320" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"></video>
+        </div>
+      </div>
+    </section>
+
+    <section class="notes">
+      <h3>Notes & limitations</h3>
+      <ul>
+        <li>This script controls only audio/video elements on the same page. It cannot change system volume or other tabs’ audio.</li>
+        <li>Some media players use their own JavaScript and may override volume settings. The script attempts to set `element.volume` and also offers a Web Audio fallback for elements that allow it.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
